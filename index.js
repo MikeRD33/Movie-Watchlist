@@ -56,14 +56,14 @@ searchBtnEl.addEventListener('click', async function(e){
 })
 
 async function fetchMovies(searchInput){
-    let response = await fetch(`http://www.omdbapi.com/?s=${searchInput}&apikey=6e23b5d3`)
+    let response = await fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=6e23b5d3`)
     let data = await response.json()
     return data.Search
     
 }
 
 async function movieInformation(imdbId){
-    let response = await fetch(`http://www.omdbapi.com/?i=${imdbId}&apikey=6e23b5d3`)
+    let response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=6e23b5d3`)
     let data = await response.json()
     return data
 }
