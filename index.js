@@ -12,14 +12,23 @@ searchBtnEl.addEventListener('click', async function(e){
     let htmlString = ''
 
     if (!searchInputEl.value.trim()) { 
-        e.preventDefault() // Prevent submission
-        searchInputEl.reportValidity() // Show browser's built-in required message
+        e.preventDefault() 
+        searchInputEl.reportValidity() // Input field shows a message to type something
         return
         }
    
    movieSearched = searchInputEl.value.trim()
    let moviesArray = await fetchMovies(movieSearched) // Grab the 10 movies array
   
+
+  
+    
+    //Verifying if that array returned to moviesArray is empty before we use it
+    if(moviesArray.length === 0){
+        mainContainerEl.innerHTML = `<h1 class="not-found">${searchInputEl.value} movie was not found 😔</h1>`;
+        searchInputEl.value = ''
+        return;
+    }
 
     // Fetch all movie details in parallel using Promise.all
     let movieDetails = await Promise.all(moviesArray.map(movie => movieInformation(movie.imdbID)));
@@ -59,9 +68,16 @@ async function fetchMovies(searchInput){
     try{
         let response = await fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=6e23b5d3`)
         let data = await response.json()
+
+        if (!data.Search) {
+            throw new Error('No movies found');
+            
+        }
         return data.Search
     } catch(error){
-        console.error('movie not found')
+        
+        return []
+       
     }
     
 }
@@ -73,6 +89,7 @@ async function movieInformation(imdbId){
         return data
     } catch(error){
         console.error('movie not found')
+         mainContainerEl.innerHTML = `<h1>Movie not found</h1>`
     }
     
 }
