@@ -56,9 +56,13 @@ searchBtnEl.addEventListener('click', async function(e){
 })
 
 async function fetchMovies(searchInput){
-    let response = await fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=6e23b5d3`)
-    let data = await response.json()
-    return data.Search
+    try{
+        let response = await fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=6e23b5d3`)
+        let data = await response.json()
+        return data.Search
+    } catch(error){
+        console.error('movie not found')
+    }
     
 }
 
