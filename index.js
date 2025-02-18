@@ -41,7 +41,7 @@ searchBtnEl.addEventListener('click', async function(e){
     mainContainerEl.innerHTML = htmlString
 
     document.getElementById('main-container').addEventListener('click', function(e){
-
+        if (e.target.tagName !== 'BUTTON') return; // Makes sure that only buttons are targetted 
         let elementId = e.target.id
         let addedMovieId = e.target.id.replace('watchlist-', '')
 
