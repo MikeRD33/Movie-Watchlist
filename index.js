@@ -67,9 +67,14 @@ async function fetchMovies(searchInput){
 }
 
 async function movieInformation(imdbId){
-    let response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=6e23b5d3`)
-    let data = await response.json()
-    return data
+    try{
+        let response = await fetch(`https://www.omdbapi.com/?i=${imdbId}&apikey=6e23b5d3`)
+        let data = await response.json()
+        return data
+    } catch(error){
+        console.error('movie not found')
+    }
+    
 }
 
 
