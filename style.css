@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -9,7 +11,7 @@ body{
   background: #FFEFBA;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  
 }
 
 
@@ -19,7 +21,8 @@ h1,h2,h3,h4,p{
 }
 
 a:visited{
-  color:rgb(117, 221, 82);;
+  color:rgb(89, 205, 51);
+  background-color: beige;
 }
 header{
   display: flex;
@@ -31,17 +34,28 @@ header{
   background-repeat: no-repeat;
   width: 100%;
   height: 238px;
-  color: rgb(117, 221, 82);
   text-shadow: 1px 1px 5px;
   padding: 30px 0;
-  font-size: 1.5em;
+  font-size: 1.2rem;
   position: relative ;
   z-index: 1;
+  background-color: beige;
+  
   
 }
 
 header a{
   border: 1px dashed rgb(193, 221, 82);
+  background-color: #f3fff7;
+  padding: 0.5em;
+  text-decoration: none;
+  border-radius: 1em;
+  border: 1px dashed green;
+  
+}
+
+header a:hover{
+  
 }
 
 img{
@@ -60,12 +74,17 @@ img{
 }
 
 button{
-  background-color:rgb(117, 221, 82);
+  background-color:rgb(103, 204, 70);
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
  
 }
 
 button:hover{
   cursor: pointer;
+  background-color:rgb(64, 210, 15);
+
 
 }
 
@@ -85,8 +104,18 @@ header h1{
   position: relative;
   z-index: 2;
   top: -20px;
-  
-  
+}
+
+#search-btn{
+  border: none;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 0px 0px 20px white;
+}
+
+#search-btn:active{
+  transform: scale(0.98);
 }
 
 .search-bar{
@@ -120,12 +149,24 @@ header h1{
   justify-content: center;
   align-items:flex-start;
   gap: 30px;
+  font-family: 'Nunito', 'Arial';
+  line-height: 1.4;
 }
+
+.movie-box button{
+  padding: 1em;
+  font-family: 'Nunito';
+  border: none;
+  border-radius: 0.7em;
+}
+
+
 
 .movie-info-container{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* Class that activates in main/h1 element if no movie was found*/
