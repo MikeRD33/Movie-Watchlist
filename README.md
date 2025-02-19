@@ -15,3 +15,5 @@ Netlify for deployment
 🎬 Future Improvements
 ✅ User authentication for personal watchlists
 🎨 Dark mode
+
+Link of my practice-project --> https://movie-watchlistpe.netlify.app/
